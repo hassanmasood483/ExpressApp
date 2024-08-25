@@ -5,7 +5,7 @@ const user = [{
 }
 ]
 module.exports={
-
+user,
     create: async (req,res)=>{
        
         try{
@@ -98,3 +98,4 @@ module.exports={
         }
       },
     };
+
