@@ -20,8 +20,8 @@ allowNull:false,
 },
 },
 {
-    timestamps:true,
-    paranoid:true,
+    timestamps:true, //created at,updated at
+    paranoid:true, // does not deleted completely
     modelName:"users",
     sequelize,
 })
