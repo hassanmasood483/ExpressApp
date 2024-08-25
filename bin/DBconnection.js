@@ -9,7 +9,7 @@ const sequelize = new Sequelize({
     host:process.DB_HOST,
 })
 sequelize.authenticate().then(()=>{
-    console.log("database connected")
+    console.log("database is connected")
 }).catch((error)=>{
     console.log("failed to connect to the database",error)
 })
