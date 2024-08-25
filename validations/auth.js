@@ -1,8 +1,8 @@
 const Joi = require("joi");
 
 module.exports = {
-  createAuthSchema: async (req, res, next) => {
-    const auth = Joi.object({
+loginUserSchema: async (req, res, next) => {
+    const loginUser= Joi.object({
         username: Joi.string()
         .min(3)
         .max(30)
