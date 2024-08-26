@@ -1,6 +1,6 @@
 
 const {compare}=require('bcryptjs')
-const {user}=require('../controllers/XuserController')
+// const {user}=require('../controllers/XuserController')
 
 module.exports = {
   login: async (req, res) => {
