@@ -2,6 +2,7 @@ const {Model , DataTypes} = require("sequelize")
 const sequelize = require("../../bin/DBconnection")
 const {v4:uuid}=require("uuid")
 const {hash} = require("bcryptjs")
+const {roles}=require("./roles")
 class users extends Model{}
 
 // users.init initializes the user and it takes two objetcs (attributes and options).
@@ -16,8 +17,16 @@ username:{
     allowNull:false,
 },
 password:{
-type:DataTypes.STRING(256),
+type:DataTypes.STRING(255),
 allowNull:false,
+},
+roleId:{
+    type:DataTypes.STRING(255),
+    allowNull:false,
+    references:{
+        modle:roles,
+        key:"roleId"
+    }
 },
 },
 {

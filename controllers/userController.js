@@ -1,28 +1,22 @@
 
 const {createUser,getAllUsers}=require("../models/UserModel")
+const responseHandler=require("../ResponseHandler")
 
 module.exports={
     create:async (req,res) => {
 try{
 const user= await createUser(req.body)
-if (user.error){
-    return res.send({error:user.error})
+responseHandler(user,res)
 }
-return res.send({response:user.response})
-}
-
 catch(error){
     console.log(error)
     return error
     }
         },
 getAll: async(req,res)=>{
-    try{const users= await getAllUsers()
-        if (users.error){
-            return res.send({error:users.error})
-        }
-        return res.send({response:users.response})
-        }
+    try{
+        const users= await getAllUsers()
+        responseHandler(users,res)}
         catch(error){
             console.log(error)
             return error

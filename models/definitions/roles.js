@@ -9,6 +9,11 @@ roleId:{
     type:DataTypes.STRING(60),
     primaryKey: true,
 },
+role:{
+    type:DataTypes.ENUM,
+    values:["instructor","admin","trainee"],
+   
+}
 },
 {
     timestamps:true,

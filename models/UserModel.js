@@ -1,24 +1,25 @@
 // const {db}=require("./definitions/users")
-const {db}=require("../bin/DBconnection")
-const {roles}=require("./definitions/roles")
-const sequelize=require("./index")
-const { Model } = require("sequelize")
+// const {db}=require("../bin/DBconnection")
+// const {roles}=require("./definitions/roles")
+// const sequelize=require("./index")
+
+const {models} = require("./index")
 
 module.exports={
     createUser:async(body)=>{
 try{
-    const user=await sequelize.models.users.create({...body})
+    const user=await models.users.create({...body})
 return {
     response:user
 }}
 catch(error){
 console.log(error)
-return error
+return {error:error}
 }
     },
   getAllUsers:async()=>{
        try{
-        const users= await sequelize.models.users.findAll({
+        const users= await models.users.findAll({
             // attributes:["userId","username"]
             attributes:{exclude:["password"]}
         })
@@ -26,7 +27,7 @@ return error
        }
   catch(error){
     console.log(error)
-    return error
+    return {error:error}
     }
 }
 }
