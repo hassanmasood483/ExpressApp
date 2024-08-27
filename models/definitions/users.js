@@ -22,7 +22,7 @@ users.init(
       allowNull: false,
     },
     roleId: {
-      type: DataTypes.STRING(60),
+      type: DataTypes.STRING(255),
       allowNull: false,
       unique: false,
       references: {

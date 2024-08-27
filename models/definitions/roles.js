@@ -12,7 +12,7 @@ roleId:{
 role:{
     type:DataTypes.ENUM,
     values:["Instructor","Admin","Trainee"],
-   
+    allowNull:false
 }
 },
 {
