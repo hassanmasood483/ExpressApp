@@ -1,10 +1,17 @@
 
-const {createUser,getAllUsers}=require("../models/UserModel")
+const {createUser,getAllUsers,getUser,deleteUser}=require("../models/UserModel")
 const responseHandler=require("../ResponseHandler")
+const {getRole} = require("../models/CommonModel")
 
 module.exports={
     create:async (req,res) => {
 try{
+const role =await getRole(req.body)
+if(role.error){
+    return res.send({error:role.error})
+}
+delete req.body.role
+req.body.roleId=role.response.dataValues.roleId
 const user= await createUser(req.body)
 responseHandler(user,res)
 }
@@ -21,6 +28,24 @@ getAll: async(req,res)=>{
             console.log(error)
             return error
             }
-    }
+    },
+    getUser: async(req,res)=>{
+        try{
+            const user= await getUser(req.query)
+            responseHandler(user,res)}
+            catch(error){
+                console.log(error)
+                return error
+                }
+        },
+        deleteUser: async(req,res)=>{
+            try{
+                const user= await getUser(req.query)
+                responseHandler(user,res)}
+                catch(error){
+                    console.log(error)
+                    return error
+                    }
+            }
 }
     
