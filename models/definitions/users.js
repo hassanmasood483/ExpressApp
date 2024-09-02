@@ -11,6 +11,27 @@ users.init(
     userId: {
       type: DataTypes.STRING(60),
       primaryKey: true,
+      allowNull: false,
+    },
+    fname: {
+      type: DataTypes.STRING(),
+      unique: false,
+      allowNull: false,
+    },
+    lname: {
+      type: DataTypes.STRING(),
+      unique: false,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING(),
+      unique: true,
+      allowNull: false,
+    },
+    mobile: {
+      type: DataTypes.STRING(),
+      unique: true,
+      allowNull: false,
     },
     username: {
       type: DataTypes.STRING(34),
@@ -33,7 +54,7 @@ users.init(
   },
   {
     timestamps: true, //created at,updated at
-    paranoid: true, // does not deleted completely
+    paranoid: false, // does not deleted completely
     modelName: "users",
     sequelize,
   }
