@@ -11,16 +11,16 @@ users.init(
     userId: {
       type: DataTypes.STRING(60),
       primaryKey: true,
-      allowNull: false,
+      // unique: true,
     },
     fname: {
       type: DataTypes.STRING(),
-      unique: false,
+      // unique: false,
       allowNull: false,
     },
     lname: {
       type: DataTypes.STRING(),
-      unique: false,
+      // unique: false,
       allowNull: false,
     },
     email: {

@@ -50,7 +50,6 @@ module.exports = {
       lname: Joi.string(),
       mobile: Joi.string(),
       email: Joi.string(),
-
       orderWith: Joi.string().valid(
         "fname",
         "lname",

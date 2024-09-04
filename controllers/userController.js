@@ -54,7 +54,7 @@ module.exports = {
   },
   updateUser: async (req, res) => {
     try {
-      const user = await deleteUser(req.body);
+      const user = await updateUser(req.body);
       responseHandler(user, res);
     } catch (error) {
       console.log(error);

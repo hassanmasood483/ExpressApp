@@ -10,7 +10,7 @@ module.exports = {
       };
     } catch (error) {
       console.log(error);
-      return { error: error };
+      return { error: error.message };
     }
   },
   getAllUsers: async (query) => {
@@ -32,6 +32,9 @@ module.exports = {
           {
             model: models.roles,
             attributes: ["role", "roleId"],
+            where: {
+              ...(query.role ? { role: query.role } : true),
+            },
           },
         ],
         order: [
